@@ -20,3 +20,10 @@ pip3 install prettytable
 ```
 
 The examples have only been tested in Python 3.
+
+### Getting Started
+All you need to do to get started with the examples, is edit the `showArrivals.py` or `showDepartures.py` file and update the `national_rail_api_key` variable with your key. You can then run the code with:
+
+```
+python3 showDepartures.py
+```
