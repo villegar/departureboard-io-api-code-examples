@@ -7,6 +7,8 @@ from prettytable import PrettyTable
 lookup_station = "HAY"
 
 # Define the National Rail API Key (This should be an environment variable in Production)
+# !!!!!! PLEASE NOTE: !!!!!! Newly generated National Rail API keys can take up to 15 minutes to become active.
+# If you get a 401 error, please wait 15 minutes and try again.
 national_rail_api_key = "XXXXX"
 
 # Build the URL to lookup train arrivals
