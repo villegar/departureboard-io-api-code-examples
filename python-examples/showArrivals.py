@@ -14,9 +14,13 @@ national_rail_api_key = "XXXXX"
 # Build the URL to lookup train arrivals
 departureboard_api_url = "https://api.departureboard.io/api/v1.0/getArrivalsByCRS/" + lookup_station + "/?apiKey=" + national_rail_api_key 
 
+# Set the User Agent with a meaningful value describing what you are using the API for. This is optional but helps me see cool projects
+api_call_user_agent = { 'User-Agent' : 'departureboard.io Python API Code Samples' }
+
 # Make the API Call, and capture errors
 try:
-    dbResult = urllib.request.urlopen(departureboard_api_url)
+    dbRequest = urllib.request.Request(url=departureboard_api_url, headers=api_call_user_agent)
+    dbResult = urllib.request.urlopen(dbRequest)
 except HTTPError as e:
     logging.error('Error contacting the departureboard.io API. HTTP Error code: ' + str(e.code))
     sys.exit()
