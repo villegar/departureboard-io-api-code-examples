@@ -12,7 +12,7 @@ lookup_station = "HAY"
 national_rail_api_key = "XXXXX"
 
 # Build the URL to lookup train departures
-departureboard_api_url = "https://api.departureboard.io/api/v1.0/getDeparturesByCRS/" + lookup_station + "/?apiKey=" + national_rail_api_key 
+departureboard_api_url = "https://api.departureboard.io/api/v2.0/getDeparturesByCRS/" + lookup_station + "/?apiKey=" + national_rail_api_key 
 
 # Set the User Agent with a meaningful value describing what you are using the API for. This is optional but helps me see cool projects
 api_call_user_agent = { 'User-Agent' : 'departureboard.io Python API Code Samples' }
@@ -49,7 +49,7 @@ for service in json_response['trainServices']:
     serviceCallingPoints = list()
 
     # Loop through the subsequentCallingPoints in the service, and add them to the serviceCallingPoints list
-    for callingPoint in service['subsequentCallingPoints']:
+    for callingPoint in service['subsequentCallingPointsList'][0]['subsequentCallingPoints']:
         serviceCallingPoints.append(callingPoint['locationName'])
 
     # Convert the serviceCallingPoints list to a comma seperated string
